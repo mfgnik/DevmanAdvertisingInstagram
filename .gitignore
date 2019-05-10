@@ -1,0 +1,8 @@
+!requirements.txt
+.env
+*.pyc
+*.txt
+*.checkpoint
+*.log
+images
+__pycache__
