@@ -1,4 +1,4 @@
-# Space Script
+# Instagram Advertising Script
 Script to check giveaway conditions in Instagram.
 
 ## Installation
