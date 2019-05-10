@@ -17,7 +17,7 @@ password='PASSWORD_YOU_GET'
 # Quick Start
 
 ```bash
-python script.py
+python advertising_script.py
 ```
 
 # Project Goals
