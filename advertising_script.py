@@ -26,6 +26,7 @@ def is_user_exists(bot, username):
 
 
 def check_comment(bot, comment, likers, followers):
+    # Regexp was found on this site https://blog.jstassen.com/2016/03/code-regex-for-instagram-username-and-hashtags/
     regexp = r'(?:@)([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)'
     users = re.findall(regexp, comment['text'])
     any_users_exists = any(is_user_exists(bot, user) for user in users)
@@ -38,11 +39,7 @@ def check_comments(bot, url_path, username):
     comments = bot.get_media_comments_all(media_id)
     likers = set(bot.get_media_likers(media_id))
     followers = set(bot.get_user_followers(bot.get_user_id_from_username(username)))
-    appropriate_comments = []
-    for comment in comments:
-        if check_comment(comment, likers, followers):
-            appropriate_comments.append(comment['username'])
-    return set(appropriate_comments)
+    return set(comment['username'] for comment in comments if check_comment(bot, comment, likers, followers))
 
 
 if __name__ == '__main__':
