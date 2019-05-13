@@ -47,7 +47,7 @@ if __name__ == '__main__':
     arguments = parse_args()
     bot = instabot.Bot()
     bot.login(username=os.getenv('login'), password=os.getenv('password'))
-    appropriate_comments = check_comments(bot, arguments.url_path, arguments.username)
-    winner = choice(appropriate_comments)
+    authors_of_appropriate_comments = check_comments(bot, arguments.url_path, arguments.username)
+    winner = choice(authors_of_appropriate_comments)
     print(winner)
 
